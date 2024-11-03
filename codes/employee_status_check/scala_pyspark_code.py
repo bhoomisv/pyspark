@@ -19,13 +19,13 @@ val employees = List(
 ("aadil", "2024-09-30")
 ).toDF("name", "last_checkin")
 
-val dfWithDate = employeesDF.withColumn("last_checkin_date", to_date("last_checkin", "yyyy-MM-dd"))
+val dfWithDate = employeesDF.withColumn("last_checkin_date", to_date(col("last_checkin"), "yyyy-MM-dd"))
 
-val dfWithDiff = dfWithDate.withColumn("days_since_last_checkin", datediff(current_date(), "last_checkin_date"))
+val dfWithDiff = dfWithDate.withColumn("days_since_last_checkin", datediff(current_date(), col("last_checkin_date")))
 
-val dfWithStatus = dfWithDiff.withColumn("status", when("days_since_last_checkin" <= 7, "Active").otherwise("Inactive"))
+val dfWithStatus = dfWithDiff.withColumn("status", when(col("days_since_last_checkin") <= 7, "Active").otherwise("Inactive"))
 
-val dfWithCapitalizedNames = dfWithStatus.withColumn("name", initcap("name"))
+val dfWithCapitalizedNames = dfWithStatus.withColumn(col("name"), initcap("name"))
 
 val finalDF = dfWithCapitalizedNames.select("name", "status")
 
