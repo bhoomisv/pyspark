@@ -25,8 +25,8 @@ val sales = List(
 
 
 val salesWithStatus = salesDF.withColumn("name", initcap("name")) \
-  .withColumn("performance_status",  when($"total_sales" > 50000, "Excellent") \
-    .when($"total_sales" >= 25000 && $"total_sales" <= 50000, "Good") \
+  .withColumn("performance_status",  when((col("total_sales") > 50000), "Excellent") \
+    .when((col("total_sales") >= 25000) & (col("total_sales") <= 50000), "Good") \
     .otherwise("Needs Improvement"))
 
 val salesByStatus = salesWithStatus.groupBy("performance_status").agg(sum("total_sales").as("total_sales"))
