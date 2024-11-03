@@ -26,7 +26,7 @@ sales_df = spark.createDataFrame(sales, ["name", "total_sales"])
 
 
 sales_df1 = sales_df.withColumn("performance_status", when(col("total_sales") > 50000, "Excellent") \
-                                                          .when((col("total_sales") > 25000) & (col("total_sales") < 50000), "Good") \
+                                                          .when((col("total_sales") >= 25000) & (col("total_sales") <= 50000), "Good") \
                                                           .otherwise("Needs Improvement")).withColumn("name", F.initcap(col("name")))
 
 result_df = sales_df1.groupBy("performance_status").agg(sum("total_sales").alias("total_sales"))
