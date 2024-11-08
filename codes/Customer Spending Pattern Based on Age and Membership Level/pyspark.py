@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession, functions as F
-from pyspark.sql.functions import col, lit, when, datediff, sum
+from pyspark.sql.functions import col, lit, when, datediff, sum, when, col, max, avg
 spark = SparkSession.builder.appName("my code practice").getOrCreate()
 
 customers = [
