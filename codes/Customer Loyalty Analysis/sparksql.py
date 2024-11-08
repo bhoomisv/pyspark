@@ -19,27 +19,6 @@ customer_loyalty_df = spark.createDataFrame(customer_loyalty, ["customer_name", 
 customer_loyalty_df.createOrReplaceTempView("customer_loyalty_table")
 
 result_df = spark.sql("""
-
-""")
-result_df.show()
-result_df1 = spark.sql("""
-
-""")
-result_df1.show()
-result_df2 = spark.sql("""
-
-""")
-result_df2.show()
-result_df3 = spark.sql("""
-
-""")
-result_df3.show()
-result_df4 = spark.sql("""
-
-""")
-result_df4.show()
-
--- Classify customers
 SELECT
   customer_name,
   purchase_frequency,
@@ -51,8 +30,9 @@ SELECT
   END AS loyalty_level
 FROM
   customer_loyalty_table;
-
--- Count customers by loyalty level
+""")
+result_df.show()
+result_df1 = spark.sql("""
 SELECT
   loyalty_level,
   COUNT(*) AS customer_count
@@ -72,8 +52,9 @@ FROM
   )
 GROUP BY
   loyalty_level;
-
--- Calculate average spending for Highly Loyal customers
+""")
+result_df1.show()
+result_df2 = spark.sql("""
 SELECT
   AVG(average_spending) AS avg_spending
 FROM
@@ -92,8 +73,9 @@ FROM
   )
 WHERE
   loyalty_level = 'Highly Loyal';
-
--- Calculate minimum spending for Moderately Loyal customers
+""")
+result_df2.show()
+result_df3 = spark.sql("""
 SELECT
   MIN(average_spending) AS min_spending
 FROM
@@ -112,8 +94,9 @@ FROM
   )
 WHERE
   loyalty_level = 'Moderately Loyal';
-
--- Identify Low Loyalty customers with average spending < 100 and frequency < 5
+""")
+result_df3.show()
+result_df4 = spark.sql("""
 SELECT
   *
 FROM
@@ -132,24 +115,8 @@ FROM
   )
 WHERE
   loyalty_level = 'Low Loyalty' AND average_spending < 100 AND purchase_frequency < 5;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+""")
+result_df4.show()
 
 
 
