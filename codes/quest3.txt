@@ -1,0 +1,265 @@
+. Count Items per Category
+Question: Count the number of products in each category.
+Sample Data:
+| category | product |
+|----------|----------------|
+| Electronics | Laptop |
+| Electronics | Phone |
+| Clothing | T-Shirt |
+| Clothing | Jeans |
+| Furniture | Chair |
+2. Find Minimum, Maximum, and Average Price per Product
+Sample Data:
+| product | price |
+|-----------|----------------|
+| Laptop | 1000 |
+| Phone | 500 |
+| T-Shirt | 20 |
+| Jeans | 50 |
+| Chair | 150 |
+Question: Calculate the minimum, maximum, and average price for each product.
+3. Group Sales by Month and Year
+Sample Data:
+| order_date | city | amount |
+|------------|----------|--------|
+| 2023-01-01 | New York | 100 |
+| 2023-02-15 | London | 200 |
+| 2023-03-10 | Paris | 300 |
+| 2023-04-20 | Berlin | 400 |
+| 2023-05-05 | Tokyo | 500 |
+Question: Group sales by month and year, and calculate the total amount for each month-year
+combination.
+4. Find Top N Products by Sales
+Sample Data:
+| product | order_id | quantity |
+|-----------|--------------|----------|
+| Laptop | order_1 | 2 |
+| Phone | order_2 | 1 |
+| T-Shirt | order_1 | 3 |
+| Jeans | order_3 | 4 |
+| Chair | order_2 | 2 |
+Question: Find the top 5 products (by total quantity sold) across all orders.
+5. Calculate Average Rating per User
+Sample Data:
+| user_id | product_id | rating |
+|---------|------------|--------|
+| 1 | 1 | 4 |
+| 1 | 2 | 5 |
+| 2 | 1 | 3 |
+| 2 | 3 | 4 |
+| 3 | 2 | 5 |
+Question: Calculate the average rating given by each user.
+6. Group Customers by Country and Calculate Total Spend
+Sample Data:
+| customer_id | country | order_id | amount |
+|--------------|---------|-----------|--------|
+| 1 | USA | order_1 | 100 |
+| 1 | USA | order_2 | 200 |
+| 2 | UK | order_3 | 150 |
+| 3 | France | order_4 | 250 |
+| 3 | France | order_5 | 300 |
+Question: Group customers by country and calculate the total amount spent by customers in each
+country.
+7. Find Products with No Sales in a Specific Time Period
+Sample Data:
+| product | order_date |
+|-----------|------------|
+| Laptop | 2023-01-01 |
+| Phone | 2023-02-15 |
+| T-Shirt | 2023-03-10 |
+| Jeans | 2023-04-20 |
+Question: Identify products that had no sales between 2023-02-01 and 2023-03-31.
+8. Calculate Order Count per Customer and City
+Sample Data:
+| customer_id | city | order_id |
+|--------------|---------|-----------|
+| 1 | New York | order_1 |
+| 1 | New York | order
+9. Group Orders by Weekday and Calculate Average Order Value (when-otherwise)
+Sample Data:
+| order_date | customer_id | amount |
+|------------|--------------|--------|
+| 2023-04-10 | 1 | 100 |
+| 2023-04-11 | 2 | 200 |
+| 2023-04-12 | 3 | 300 |
+| 2023-04-13 | 1 | 400 |
+| 2023-04-14 | 2 | 500 |
+Question: Group orders by weekday (use dayofweek) and calculate the average order value for
+weekdays and weekends using when and otherwise.
+10. Filter Products Starting with "T" and Group by Category with Average Price
+Sample Data:
+| product | category | price |
+|-----------|----------|--------|
+| T-Shirt | Clothing | 20 |
+| Table | Furniture | 150 |
+| Jeans | Clothing | 50 |
+| Chair | Furniture | 100 |
+Question: Filter products starting with "T" and group them by category, calculating the average price
+for each category.
+11. Find Customers Who Spent More Than $200 in Total
+Sample Data:
+| customer_id | order_id | amount |
+|--------------|-----------|--------|
+| 1 | order_1 | 100 |
+| 1 | order_2 | 150 |
+| 2 | order_3 | 250 |
+| 3 | order_4 | 100 |
+| 3 | order_5 | 120 |
+Question: Group customers by customer ID and calculate the total amount spent. Filter customers
+who spent more than $200 in total.
+12. Create a New Column with Order Status ("High" for > $100, "Low" Otherwise)
+Sample Data:
+| order_id | amount |
+|-----------|--------|
+| order_1 | 150 |
+| order_2 | 80 |
+| order_3 | 220 |
+| order_4 | 50 |
+Question: Group orders by order ID and create a new column named "order_status" with values
+"High" for orders with an amount greater than $100, and "Low" otherwise, using withColumn.
+13. Select Specific Columns and Apply GroupBy with Average
+Sample Data:
+| product | category | price | quantity |
+|-----------|----------|--------|----------|
+| Laptop | Electronics | 1000 | 2 |
+| Phone | Electronics | 500 | 1 |
+| T-Shirt | Clothing | 20 | 3 |
+| Jeans | Clothing | 50 | 4 |
+Question: Select only "product" and "price" columns, then group by "product" and calculate the
+average price.
+14. Count Orders by Year and Month with Aggregation Functions (count, sum)
+Sample Data:
+| order_date | customer_id | amount |
+|------------|--------------|--------|
+| 2023-01-01 | 1 | 100 |
+| 2023-02-15 | 2 | 200 |
+| 2023-03-10 | 3 | 300 |
+| 2023-04-20 | 1 | 400 |
+| 2023-05-05 | 2 | 500 |
+Question: Group orders by year and month, and calculate the total number of orders and total
+amount for each month-year combination
+15. Find Products with Highest and Lowest Sales in Each Category (Top N)
+Sample Data:
+| product | category | quantity |
+|-----------|----------|----------|
+| Laptop | Electronics | 2 |
+| Phone | Electronics | 1 |
+| T-Shirt | Clothing | 3 |
+| Jeans | Clothing | 4 |
+| Chair | Furniture | 2 |
+| Sofa | Furniture | 1 |
+Question: Group by category and find the top 2 products (by total quantity sold) within each
+category.
+16. Calculate Average Rating per Product, Weighted by Quantity Sold
+Sample Data:
+| product_id | order_id | rating | quantity |
+|-------------|-----------|--------|----------|
+| 1 | order_1 | 4 | 2 |
+| 1 | order_2 | 5 | 1 |
+| 2 | order_3 | 3 | 4 |
+| 2 | order_4 | 4 | 3 |
+| 3 | order_5 | 5 | 1 |
+Question: Group by product ID, calculate the average rating, weighted by the quantity sold for each
+order.
+17. Find Customers Who Placed Orders in More Than Two Different Months
+Sample Data:
+| customer_id | order_date |
+|--------------|------------|
+| 1 | 2023-01-01 |
+| 1 | 2023-02-15 |
+| 2 | 2023-03-10 |
+| 2 | 2023-03-20 |
+| 3 | 2023-04-20 |
+| 3 | 2023-05-05 |
+Question: Group by customer ID and count the distinct number of months in which they placed
+orders. Filter customers who placed orders in more than two months.
+18. Group by Country and Calculate Total Sales, Excluding Orders Below $50
+Sample Data:
+| country | order_id | amount |
+|---------|-----------|--------|
+| USA | order_1 | 100 |
+| USA | order_2 | 40 |
+| UK | order_3 | 150 |
+| France | order_4 | 250 |
+| France | order_5 | 30 |
+Question: Group by country, calculate the total sales amount, excluding orders with an amount less
+than $50.
+19. Find Products Never Ordered Together (Pairwise Co-occurrence)
+Sample Data:
+| order_id | product_id1 | product_id2 |
+|-----------|--------------|--------------|
+| order_1 | 1 | 2 |
+| order_2 | 1 | 3 |
+| order_3 | 2 | 4 |
+| order_4 | 3 | 1 | (Repeat order to avoid self-joins)
+Question: Identify product pairs that never appeared together in any order. This may require self-
+joins or other techniques for pairwise comparisons.
+20. Group by Category and Calculate Standard Deviation of Price
+Sample Data:
+| product | category | price |
+|-----------|----------|--------|
+ Laptop | Electronics | 1000 |
+| Phone | Electronics | 500 |
+| T-Shirt | Clothing | 20 |
+| Jeans | Clothing | 50 |
+| Chair | Furniture | 150 |
+| Sofa | Furniture | 200 |
+Question: Group by category and calculate the standard deviation of price for each category.
+21. Find Most Frequent Customer City Combinations
+Sample Data:
+| customer_id | city |
+|--------------|---------|
+| 1 | New York |
+| 1 | New York |
+| 2 | London |
+| 2 | Paris |
+| 3 | Paris |
+| 3 | Paris |
+Question: Group by customer_id and city, and find the most frequent city for each customer.
+22. Calculate Customer Lifetime Value (CLTV) by Year
+Sample Data:
+| customer_id | order_date | amount |
+|--------------|------------|--------|
+| 1 | 2022-01-01 | 100 |
+| 1 | 2023-02-15 | 200 |
+| 2 | 2022-03-10 | 300 |
+| 2 | 2023-04-20 | 400 |
+| 3 | 2022-05-05 | 500 |
+| 3 | 2023-06-06 | 600 |
+Question: Group by customer_id and year (use year), calculate the total amount spent for each
+customer in each year. This can be used to calculate CLTV.
+23. Find Products with a Decline in Average Rating Compared to Previous Month
+Sample Data:
+| product_id | order_date | rating |
+|-------------|------------|--------|
+| 1 | 2023-01-01 | 4 |
+| 1 | 2023-02-15 | 3 |
+| 2 | 2023-01-10 | 5 |
+| 2 | 2023-02-20 | 4 |
+| 3 | 2023-01-20 | 4 |
+| 3 | 2023-02-25 | 5 |
+Question: Group by product_id and month (use month), calculate the average rating for each
+product in each month. Identify products with a decrease in average rating compared to the previous
+month.
+24. Group Orders by Weekday and Find Peak Hour for Orders
+Sample Data:
+| order_id | order_date | hour |
+|-----------|------------|------|
+| order_1 | 2023-04-10 | 10 |
+| order_2 | 2023-04-11 | 15 |
+| order_3 | 2023-04-12 | 12 |
+| order_4 | 2023-04-13 | 11 |
+ order_5 | 2023-04-14 | 18 |
+Question: Group by weekday (use dayofweek) and hour, and find the hour with the most orders for
+each weekday.
+25. Calculate Average Order Value by Country, Excluding Cancelled Orders
+Sample Data:
+| country | order_id | amount | status |
+|---------|-----------|--------|--------|
+| USA | order_1 | 100 | Shipped |
+| USA | order_2 | 40 | Cancelled |
+| UK | order_3 | 150 | Completed |
+| France | order_4 | 250 | Pending |
+| France | order_5 | 30 | Shipped |
+Question: Group by country, calculate the average order value, excluding orders with a "Cancelled"
+status.
