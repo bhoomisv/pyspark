@@ -1,0 +1,52 @@
+This is Data
+1. we want to find the difference between the price on each day with it’s previous day.
++-----+-------+------+----------+
+|IT_ID|IT_Name| Price| PriceDate|
++-----+-------+------+----------+
+| 1| KitKat|1000.0|2021-01-01|
+| 1| KitKat|2000.0|2021-01-02|
+| 1| KitKat|1000.0|2021-01-03|
+| 1| KitKat|2000.0|2021-01-04|
+| 1| KitKat|3000.0|2021-01-05|
+| 1| KitKat|1000.0|2021-01-06|
++-----+-------+------+----------+
+2. If salary is less than previous month we will mark it as &quot;DOWN&quot;, if salary has increased then &quot;UP&quot;
+ID,NAME,SALARY,DATE
+1,John,1000,01/01/2016
+1,John,2000,02/01/2016
+1,John,1000,03/01/2016
+1,John,2000,04/01/2016
+1,John,3000,05/01/2016
+1,John,1000,06/01/2016
+=====================================================================
+=====sample data for all problems======
+id1|name|salary
+1|&quot;karthik&quot;| 1000 |
+2|&quot;moahn&quot;| 2000 |
+3|&quot;vinay&quot;| 1500 |
+4|&quot;Deva&quot;| 3000
+3. Calculate the lead and lag of the salary column ordered by id
+4. Calculate the percentage change in salary from the previous row to the current row, ordered by id.
+(using the same sample data)
+5. Calculate the rolling sum of salary for the current row and the previous two rows, ordered by id.
+6. Calculate the difference between the current salary and the minimum salary within the last three rows, o
+rdered by id.
+7. Calculate the lead and lag of salary within each group of employees (grouped by name) ordered by id.
+8. Calculate the lead and lag of the salary column for each employee ordered by id, but only for the emplo
+yees who have a salary greater than 1500.
+9. Calculate the lead and lag of the salary column for each employee, ordered by id, but only for the emplo
+yees who have a change in salary greater than 500 from the previous row.
+10. Calculate the cumulative count of employees, ordered by id, and reset the count when the name chan
+ges.
+11. Calculate the running total of salary for each employee ordered by id.
+12. Find the maximum salary for each employee’s group (partitioned by name) and display it for each row.
+13. Calculate the difference between the current salary and the average salary for each employee’s group
+(partitioned by name) ordered by id.
+14. Calculate the rank of each employee based on their salary, ordered by salary in descending order.
+15. Calculate the lead and lag of the salary column, ordered by id, but only for the employees whose salari
+es are strictly increasing (i.e., each employee’s salary is greater than the previous employee’s salary).
+16. Calculate the lead and lag of the salary column ordered by id, but reset the lead and lag values when t
+he employee’s name changes.
+17. Calculate the percentage change in salary from the previous row to the current row, ordered by id, but
+group the percentage changes by name.
+===================================================================
