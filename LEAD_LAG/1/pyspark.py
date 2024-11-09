@@ -20,4 +20,3 @@ df1 = df.withColumn("PrevPrice", lag("Price").over(Window.partitionBy("IT_ID").o
     .withColumn("PriceDiffPerDay", col("PriceDiff") / col("DaysDiff")) \
     .select("IT_ID", "IT_Name", "PriceDate", "Price", "PrevPrice", "PriceDiff", "DaysDiff", "PriceDiffPerDay")
 df1.show()
-

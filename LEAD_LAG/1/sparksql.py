@@ -40,4 +40,3 @@ FROM
 """)
 
 result_df.show()
-
